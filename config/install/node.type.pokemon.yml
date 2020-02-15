@@ -1,0 +1,21 @@
+uuid: 8a108cf8-61e6-41e9-974b-e303e96bc514
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+  enforced:
+    module:
+      - pokeapi
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Pokemon
+type: pokemon
+description: 'De petits monstres mignons et badass'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

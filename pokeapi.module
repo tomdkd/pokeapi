@@ -1,0 +1,18 @@
+<?php
+
+  function pokeapi_theme($existing, $type, $theme, $path) {
+    return [
+      'pokemon_table' => [
+        'variables' => [
+          'pokemons' => NULL,
+          'pagination' => NULL,
+          'form' => NULL,
+        ],
+      ],
+      'details_pokemon' => [
+        'variables' => [
+          'pokemon' => NULL,
+        ]
+      ]
+    ];
+  }

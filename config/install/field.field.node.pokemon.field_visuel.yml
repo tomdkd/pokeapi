@@ -1,0 +1,19 @@
+uuid: 25978563-9bef-493b-a087-65e105f08282
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visuel
+    - node.type.pokemon
+id: node.pokemon.field_visuel
+field_name: field_visuel
+entity_type: node
+bundle: pokemon
+label: Visuel
+description: 'L''url vers le visuel du Pokémon'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

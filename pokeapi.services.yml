@@ -1,0 +1,5 @@
+services:
+  pokeapi.pokemon_service:
+    class: 'Drupal\pokeapi\Service\PokemonService'
+  pokeapi.pagination_service:
+    class: 'Drupal\pokeapi\Service\PaginationService'

@@ -1,0 +1,4 @@
+name: pokeapi
+type: module
+core: 8.x
+description: Récupérer les pokémons de la premiére génération

@@ -1,0 +1,27 @@
+pokeapi.general:
+  path: '/pokemons'
+  defaults:
+    _controller: 'Drupal\pokeapi\Controller\GeneralController::general'
+  requirements:
+    _permission: 'access content'
+
+pokeapi.recup:
+  path: '/pokemons/get'
+  defaults:
+    _controller: 'Drupal\pokeapi\Controller\GeneralController::getCreateDatas'
+  requirements:
+    _permission: 'access content'
+
+pokeapi.delete:
+  path: '/pokemons/delete'
+  defaults:
+    _controller: 'Drupal\pokeapi\Controller\GeneralController::delete'
+  requirements:
+    _permission: 'access content'
+
+pokeapi.details:
+  path: '/pokemons/details/{nid}'
+  defaults:
+    _controller: 'Drupal\pokeapi\Controller\GeneralController::details'
+  requirements:
+    _permission: 'access content'

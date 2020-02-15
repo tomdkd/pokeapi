@@ -1,0 +1,6 @@
+pokeapi.general_link:
+  title: 'Pokémons'
+  parent: main
+  menu_name: main
+  route_name: pokeapi.general
+  weight: 2

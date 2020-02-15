@@ -1,0 +1,82 @@
+{% if pokemons %}
+  <div class="formulaire text-align-center">
+    {{ form }}
+  </div>
+{% endif %}
+<div class="buttons text-align-center" style="margin-top: 2%">
+  <a href="{{ path('pokeapi.recup') }}" class="btn btn-success">Récupérer tous les pokémons</a>
+  {% if pokemons %}
+    <a href="{{ path('pokeapi.delete') }}" class="btn btn-danger">Supprimer tous les pokémons</a>
+  {% endif %}
+</div>
+
+<p>{{ pagination.totalNodes }} Pokémons actuellement enregistrés</p>
+
+<div class="tableau text-align-center">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col" class="text-align-center">#</th>
+      <th scope="col" class="text-align-center">{% trans %}Nom{% endtrans %}</th>
+      <th scope="col" class="text-align-center">{% trans %}Types{% endtrans %}</th>
+      <th scope="col" class="text-align-center">{% trans %}Taille{% endtrans %}</th>
+      <th scope="col" class="text-align-center">{% trans %}Poids{% endtrans %}</th>
+      <th scope="col" class="text-align-center">{% trans %}Visuel{% endtrans %}</th>
+      <th scope="col" class="text-align-center">{% trans %}Action{% endtrans %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if pokemons %}
+      {% for pokemon in pokemons %}
+        <tr>
+          <th scope="row">{{ pokemon.pokedex }}</th>
+          <td>{{ pokemon.nom | upper }}</td>
+          <td>{{ pokemon.types }}</td>
+          <td>{{ pokemon.taille }} m</td>
+          <td>{{ pokemon.poids }} kg</td>
+          <td><img src="{{ pokemon.visuel }}" alt="{{ pokemon.nom }}"></td>
+          <td>
+            <a href="{{ path('pokeapi.details', {'nid': pokemon.nid}) }}"
+               class="btn btn-info">{% trans %}Détails{% endtrans %}</a></td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <tr>
+        <th>{% trans %}Aucun Pokémon{% endtrans %}</th>
+      </tr>
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% if pokemons %}
+  <div class="pages text-align-center">
+    <nav>
+      <ul class="pagination">
+        {% if pagination.currentPage != 1 %}
+          <li class="page-item">
+            <a class="page-link"
+               href="{{ path('pokeapi.general') }}?page={{ pagination.currentPage - 1 }}">{% trans %}Précédent{% endtrans %}</a>
+          </li>
+        {% endif %}
+        {% for i in 1..pagination.nbPage %}
+          {% if pagination.currentPage == i %}
+            <li class="page-item active">
+              <a class="page-link"
+                 href="{{ path('pokeapi.general') }}?page={{ i }}">{{ i }}</a></li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="{{ path('pokeapi.general') }}?page={{ i }}">{{ i }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        {% if pagination.currentPage != pagination.nbPage %}
+          <li class="page-item">
+            <a class="page-link"
+               href="{{ path('pokeapi.general') }}?page={{ pagination.currentPage + 1 }}">{% trans %}Suivant{% endtrans %}</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+{% endif %}

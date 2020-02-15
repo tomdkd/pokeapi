@@ -1,0 +1,24 @@
+uuid: 19c7db8c-0289-4486-8fc3-e67ea1458e38
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - pokeapi
+id: node.field_id
+field_name: field_id
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

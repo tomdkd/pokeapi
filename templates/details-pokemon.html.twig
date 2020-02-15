@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <h1>{{ pokemon.nom | upper }}</h1>
+  <p>ID Pokédex : {{ pokemon.pokedex }}</p>
+  <p>{% trans %}Types{% endtrans %} : {{ pokemon.types }}</p>
+  <p>{% trans %}Taille{% endtrans %} : {{ pokemon.taille }} m</p>
+  <p>{% trans %}Poids{% endtrans %} : {{ pokemon.poids }} kg</p>
+  <p>{% trans %}Visuel{% endtrans %} : <img src="{{ pokemon.visuel }}" alt="{{ pokemon.nom }}"></p>
+</div>
+<a href="{{ path('pokeapi.general') }}" class="btn btn-info">< {% trans %}Retour{% endtrans %}</a>
